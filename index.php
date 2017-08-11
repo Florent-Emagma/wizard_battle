@@ -8,7 +8,6 @@ require __DIR__.'/functions.php';
            <meta http-equiv="X-UA-Compatible" content="IE=edge">
            <meta name="viewport" content="width=device-width, initial-scale=1">
            <title>Duel Of Wizzards</title>
-
            <!-- Bootstrap -->
            <link href="css/bootstrap.min.css" rel="stylesheet">
            <link href="css/style.css" rel="stylesheet">
@@ -19,6 +18,27 @@ require __DIR__.'/functions.php';
             <div class="page-header">
                 <h1>Duel of Wizards</h1>
             </div>
+            <table class="table table-hover">
+                <caption><i class="fa fa-star"></i> These wizards are ready for their next duel</caption>
+                <thead>
+                    <tr>
+                        <th>Wizard</th>
+                        <th>Power</th>
+                        <th>Life point</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($wizards as $wizard): ?>
+                        <tr>
+                            <td><?php echo $wizard->getName(); ?></td>
+                            <td><?php echo $wizard->getPower(); ?></td>
+                            <td><?php echo $wizard->getLifePoint(); ?></td>
+                            <td><?php echo $wizard->getTeam(); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
             <div class="battle-box center-block border">
                 <div>
                     <form method="POST" action="/battle.php">
